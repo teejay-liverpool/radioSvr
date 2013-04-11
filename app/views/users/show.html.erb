@@ -11,9 +11,14 @@
 	<aside>
 </div>
 
+<hr>
+
 <div class="row">
-	<div class="span6 offset3">
+
+	<div class="span4 offset3">
 		<%= form_for(@user) do |f| %>
+			<%= f.label :id , "Reference" %>
+			<%= f.text_field :id %>
 	
 			<%= f.label :name %>
 			<%= f.text_field :name %>
@@ -22,25 +27,34 @@
 			<%= f.text_field :email %>
 		<% end %>
 	</div>
-</div>	
 
-	
 
-<div class="span8">
-	<% if @user.microposts.any? %>
+	<div class="span6 offset4">
 
-		<h3>No of Posts: ( <%= @user.microposts.count %> ) </h3>
+	<p>
+		<a href= <%= edit_user_path(@user) %> class="btn btn-primary" >Edit</a>
+		<a href= <%= users_path %> class="btn btn-primary">Back</a>
+	</p>
 
-		<ol class="microposts" >
-			<%= render @microposts %>
-		</ol>
+	</div>
 
-		<%= will_paginate @microposts %>
+	<div class="span12" >
+		<hr>
+	</div>
 
-	<% end %>
-</div>
+	<div class="span8">
+		<% if @user.microposts.any? %>
 
-<div>
-	<%= link_to 'Edit', edit_user_path(@user) %> |
-	<%= link_to 'Back', users_path %>
+			<h3>No of Posts: ( <%= @user.microposts.count %> ) </h3>
+
+			<ol class="microposts" >
+				<!--T <%= render @microposts %> -->
+				<%= render @microposts %> 
+			</ol>
+
+			<%= will_paginate @microposts %>
+
+		<% end %>
+	</div>
+
 </div>
