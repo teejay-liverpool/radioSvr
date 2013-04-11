@@ -2,30 +2,35 @@ class UsersController < ApplicationController
 
   include SessionsHelper
 
+  # Make sure user is signed in and the correct user before "edit" and "update" allowed
+
   before_filter  :signed_in_user, only: [:edit , :update , ]
   before_filter  :correct_user,   only: [:edit , :update , ]
 	
   def new
   	@user = User.new
+    #users/new.html.erb now displayed
   end
 
   def show
   	@user = User.find( params[:id] )
     @microposts = @user.microposts.paginate( page: params[ :page ] , :per_page => 5)
+    # users/show.html.erb now displayed
   end
 
   def index
     @users = User.paginate( page: params[:page] )
+    #users/index.html.erb now displayed
   end
 
-  def create     # This is call on the form post back
+  def create     # This is called from the new formpost back
   	@user = User.new(params[:user])
 
   	if @user.save
   		flash.now[:success] = "Welcome to the app"
-  		redirect_to @user   # could use "user_path" instead 
+  		redirect_to @user   # could use "user_path" instead e.g. users/1
   	else
-  		render "new"
+  		render "new" # redisplay new form to allow fixing of errors
   	end
 
   end	
@@ -43,16 +48,16 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-      def signed_in_user
-        redirect_to signin_path, notice: "Please sign in" unless signed_in?
-      end
-
-      def correct_user
-        @user = User.find(params[:id])
-        redirect_to(root_path) unless current_user?(@user)
-      end
+  #private
+#
+ #     def signed_in_user
+  #      redirect_to signin_path, notice: "Please sign in" unless signed_in?
+   #   end
+#
+ #     def correct_user
+  #      @user = User.find(params[:id])
+   #     redirect_to(root_path) unless current_user?(@user)
+    #  end
 
 end
 

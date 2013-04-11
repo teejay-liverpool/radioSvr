@@ -1,23 +1,38 @@
 <% if signed_in? %>
-	<div class="span8" >
-		<h3>Posts</h3>
-			<ol class="microposts" >
-				<%= user = @current_user.name %>
-				
-			
-			</ol>
+
+	<div class="row">
+		<aside class="span5" >
+
+			<section>
+
+				<%= form_for( @micropost) do |f| %>
+
+					<%= render 'shared/error_messages', object: f.object %>
+
+					<div class="field">
+						<%= f.text_area :content, placeholder: "New message" %>
+					</div>
+
+					<%= f.submit "Post", class:"btn btn-large btm-primary" %>
+
+				<% end %>							
+
+			</section>			
+		</aside>
 	</div>
+
+<% else %>
+
+	<div class="center hero-unit">
+		<h1>Welcome to the Sample App</h1>
+
+		<h2>
+			This is the home page 
+		</h2>
+
+		<%= link_to "Sign Up Now" , '#' , class: "btn btn-large btn-primary" %>
+	</div>
+
 <% end %>
-
-
-<div class="center hero-unit">
-	<h1>Welcome to the Sample App</h1>
-
-	<h2>
-		This is the home page 
-	</h2>
-
-	<%= link_to "Sign Up Now" , '#' , class: "btn btn-large btn-primary" %>
-</div>
 
 <%= link_to image_tag("rails.png" , alt: "Rails" ) , 'http://rubyonrails.org/' %>
