@@ -2,6 +2,8 @@ DemoApp::Application.routes.draw do
   
   resources :users
 
+  match '/users/:id/posts' , to: 'users#posts'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :microposts, only: [:create, :destroy]

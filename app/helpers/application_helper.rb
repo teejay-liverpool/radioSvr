@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def full_title( page_title )
-		baseTitle = 'This is the base title'
+		baseTitle = 'Big Button Radio'
 		if page_title.empty?
 			baseTitle
 		else

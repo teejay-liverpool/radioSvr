@@ -1,38 +1,45 @@
-<% if signed_in? %>
+<% provide(:title, 'Home') %>
 
-	<div class="row">
-		<aside class="span5" >
+<div class="row">
+	<div class="span8">
 
-			<section>
+		<% if signed_in? %>
 
-				<%= form_for( @micropost) do |f| %>
+			<div class="row span5">
 
-					<%= render 'shared/error_messages', object: f.object %>
+						<%= form_for( @micropost) do |f| %>
 
-					<div class="field">
-						<%= f.text_area :content, placeholder: "New message" %>
-					</div>
+							<%= render 'shared/error_messages', object: f.object %>
 
-					<%= f.submit "Post", class:"btn btn-large btm-primary" %>
+							<div class="field span10" >
+								<%= f.text_area :content, placeholder: "New message", :cols => 10, :rows => 5 %>
 
-				<% end %>							
+								<%= f.submit "Post", class:"btn btn-large btm-primary" %>
+							</div>
 
-			</section>			
-		</aside>
+						<% end %>							
+			</div>
+
+			
+
+			
+
+		<% else %>
+
+			<div class="center hero-unit">
+				<h1>Welcome to the Sample App</h1>
+
+				<h2>
+					This is the home page 
+				</h2>
+
+				<%= link_to "Sign Up Now" , '#' , class: "btn btn-large btn-primary" %>
+
+				<%= link_to image_tag("rails.png" , alt: "Rails" ) , 'http://rubyonrails.org/' %>
+			</div>
+
+		<% end %>
 	</div>
+</div>
 
-<% else %>
 
-	<div class="center hero-unit">
-		<h1>Welcome to the Sample App</h1>
-
-		<h2>
-			This is the home page 
-		</h2>
-
-		<%= link_to "Sign Up Now" , '#' , class: "btn btn-large btn-primary" %>
-	</div>
-
-<% end %>
-
-<%= link_to image_tag("rails.png" , alt: "Rails" ) , 'http://rubyonrails.org/' %>
