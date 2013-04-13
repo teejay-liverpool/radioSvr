@@ -1,0 +1,9 @@
+<!--- Simple page to return messages 
+      this is the page read by the radio device
+      linked to the user account -->
+
+<% @microposts.each do |micropost| %>
+	
+	<p><%= micropost.content  %></p>
+
+<% end %>

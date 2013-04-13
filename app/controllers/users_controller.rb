@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   before_filter  :correct_user,   only: [:edit , :update , ]
 	
   def posts
-    render :text => "Hello World"
+    #render :text => "Hello World"
+    @microposts = current_user.microposts
+
   end
 
 
