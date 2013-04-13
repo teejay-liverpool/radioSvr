@@ -22,16 +22,19 @@
 
 		<% else %>
 
-			<div class="center hero-unit">
-				<h1>Welcome to the Sample App</h1>
+			<div class="home-box center hero-unit">
 
-				<h2>
-					This is the home page 
-				</h2>
+				<h1>Big Button Radio</h1>
 
-				<%= link_to "Sign Up Now" , '#' , class: "btn btn-large btn-primary" %>
+				<br /> <br />
 
-				<%= link_to image_tag("rails.png" , alt: "Rails" ) , 'http://rubyonrails.org/' %>
+				<h2>Welcome to the site !</h2>
+
+				<h2>Post your messages to your loved ones here. </h2>
+
+				<%= link_to "Sign In" , new_session_path , class: "btn btn-large btn-primary" %>		
+
+				<!-- <%= link_to image_tag("rails.png" , alt: "Rails" ) , 'http://rubyonrails.org/' %> -->
 			</div>
 
 		<% end %>

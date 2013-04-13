@@ -2,10 +2,10 @@
 
 
 <div class="row">
-	<aside class="span4">
+	<aside class="span6">
 		<section>
 			<h1>
-				<%= @user.name %>
+				Hi there <%= @user.name %> these are your details:
 			</h1>
 		</section>
 	<aside>
@@ -45,7 +45,7 @@
 	<div class="span8">
 		<% if @user.microposts.any? %>
 
-			<h3>No of Posts: ( <%= @user.microposts.count %> ) </h3>
+			<h3>These are your recent messages ( <%= @user.microposts.count %> )</h3>
 
 			<ol class="microposts" >
 				<!--T <%= render @microposts %> -->

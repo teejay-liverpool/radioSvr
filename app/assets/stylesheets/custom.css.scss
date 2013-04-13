@@ -8,6 +8,13 @@ body {
 	padding-top: 60px ;
 }
 
+/* Background image for home page */
+
+.home-box {
+	background-image: url("home.jpg");
+	background-size:640px 400px;
+}
+
 section {
 	overflow: auto ;
 }
@@ -43,7 +50,7 @@ h2 {
 	margin-bottom: 30px ;
 	text-align: center ;
 	font-weight: normal ;
-	color: #999 ;
+
 }
 
 p {
@@ -167,7 +174,7 @@ input, textarea, select, .uneditable-input {
 	@include box-sizing ;
 }
 
-
+/* users */
 
 .users{
 	list-style: none ;
