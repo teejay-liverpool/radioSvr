@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :microposts, dependent: :destroy
 
-  #validates(:name, presence: true)
+  validates(:name, presence: true, length: {maximum: 30})
 
   validates(:email, presence: true , length: {maximum: 40})
   validate(:password , presence: true )
