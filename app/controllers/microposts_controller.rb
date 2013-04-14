@@ -12,9 +12,12 @@ class MicropostsController < ApplicationController
 
 		if @micropost.save
 			flash[:success] = "Post created"
-			redirect_to root_path
+			#redirect_to root_path
+			@user = current_user
+			redirect_to @user
 		else
-			render 'static_pages/home'
+			redirect_to @user 
+			#render 'static_pages/home'
 		end
 	end
 

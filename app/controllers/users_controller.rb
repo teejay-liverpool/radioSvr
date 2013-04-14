@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   before_filter  :correct_user,   only: [:edit , :update , ]
 	
   def posts
-    #render :text => "Hello World"
     @microposts = current_user.microposts
   end
 
@@ -39,7 +38,7 @@ class UsersController < ApplicationController
   		flash.now[:success] = "Welcome to the app"
   		redirect_to @user   # could use "user_path" instead e.g. users/1
   	else
-  		render "new" # redisplay new form to allow fixing of errors
+  		render user_path # redisplay new form to allow fixing of errors
   	end
 
   end	
