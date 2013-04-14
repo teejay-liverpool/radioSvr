@@ -5,11 +5,11 @@
 <div class="row">
 	<div class="span8">
 
-		<% if signed_in? %>   # then allow to post messages
+		<% if signed_in? %>   <!--# then allow to post messages   -->
 
 			<div class="row span5">
 
-				<h1>user <%= @current_user.name %> </h1>
+				<h1>user = <%= current_user.id %> </h1>
 
 						<%= form_for( @micropost) do |f| %>
 
