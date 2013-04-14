@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def posts
     #render :text => "Hello World"
     @microposts = current_user.microposts
-
   end
 
 
@@ -21,6 +20,9 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find( params[:id] )
+
+    @micropost = current_user.microposts.build 
+
     @microposts = @user.microposts.paginate( page: params[ :page ] , :per_page => 5)
     # users/show.html.erb now displayed
   end

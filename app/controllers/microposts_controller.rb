@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
 	before_filter :signed_in_user
 
 	def home
-
+		@micropost = current_user.microposts.build if signed_in?
 	end
 
 	def create
