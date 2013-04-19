@@ -8,17 +8,20 @@ class MicropostsController < ApplicationController
 	end
 
 	def create
-		@user = current_user
-		@micropost = current_user.microposts.build( params[:micropost])
+		# Called when micrposts / new has posted form
+
+		@user = current_user   # get current user so we can redirect to it if save is sucessfull
+
+		@micropost = current_user.microposts.build( params[:micropost] )
+
+		@micropost.user_id = current_user.id
 
 		if @micropost.save
 			flash[:success] = "Post created"
 			#redirect_to root_path
-			@user = current_user
-			redirect_to @user
+			redirect_to @user    # call users / :id / show -->
 		else
 			flash[:fail] = "Cant save post"
-			redirect_to @user 
 			#render 'static_pages/home'
 		end
 	end
