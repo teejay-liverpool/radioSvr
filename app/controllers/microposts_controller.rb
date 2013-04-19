@@ -16,6 +16,7 @@ class MicropostsController < ApplicationController
 			@user = current_user
 			redirect_to @user
 		else
+			flash[:fail] = "Cant save post"
 			redirect_to @user 
 			#render 'static_pages/home'
 		end
