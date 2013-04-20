@@ -16,10 +16,12 @@ class MicropostsController < ApplicationController
 
 		@micropost.user_id = current_user.id
 
+		render 'test'
+
 		if @micropost.save
 			flash[:success] = "Post created"
 			#redirect_to root_path
-			redirect_to @user    # call users / :id / show -->
+			#redirect_to @user    # call users / :id / show -->
 		else
 			flash[:fail] = "Cant save post"
 			#render 'static_pages/home'
