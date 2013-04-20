@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @micropost = current_user.microposts.build 
 
     @microposts = @user.microposts.paginate( page: params[ :page ] , :per_page => 5)
+
     # users/show.html.erb now displayed
   end
 
